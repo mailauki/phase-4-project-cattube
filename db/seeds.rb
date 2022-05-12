@@ -8,4 +8,24 @@
 
 user1 = User.create!(username: Faker::Internet.username, password: Faker::Internet.password)
 
-video1 = Video.create!(title: "Cute Little Red Cat Sleeping", description: Faker::Lorem.sentence, url: "https://www.shutterstock.com/video/clip-1055349194-cute-little-red-cat-sleeping-on-floor", user_id: user1.id)
+user2 = User.create!(username: Faker::Internet.username, password: Faker::Internet.password)
+
+user3 = User.create!(username: Faker::Internet.username, password: Faker::Internet.password)
+
+video1 = Video.create!(title: "Jurassic Park but with a Cat", description: Faker::Lorem.paragraph, url: "https://www.youtube.com/embed/W85oD8FEF78", user_id: user1.id)
+
+Video.create!(title: "World's smallest cat", description: Faker::Lorem.paragraph, url: "https://www.youtube.com/embed/W86cTIoMv2U", user_id: user1.id)
+
+Video.create!(title: "Little cat on a fence in the gaden", description: Faker::Lorem.paragraph, url: "https://assets.mixkit.co/videos/preview/mixkit-little-cat-on-a-fence-in-the-gaden-33152-large.mp4", user_id: user2.id)
+
+Video.create!(title: "Cute red kitten sleeping in the couch", description: Faker::Lorem.paragraph, url: "https://assets.mixkit.co/videos/preview/mixkit-cute-red-kitten-sleeping-in-the-couch-32319-large.mp4", user_id: user2.id)
+
+Video.create!(title: "White cat lying among the grasses seen up close", description: Faker::Lorem.paragraph, url: "https://assets.mixkit.co/videos/preview/mixkit-white-cat-lying-among-the-grasses-seen-up-close-22732-large.mp4", user_id: user2.id)
+
+Video.create!(title: "Newborn fluffy kittens", description: Faker::Lorem.paragraph, url: "https://assets.mixkit.co/videos/preview/mixkit-newborn-fluffy-kittens-31978-large.mp4", user_id: user2.id)
+
+Video.create!(title: "White, blue-eyed cat", description: Faker::Lorem.paragraph, url: "https://assets.mixkit.co/videos/preview/mixkit-white-blue-eyed-cat-1538-large.mp4", user_id: user3.id)
+
+Video.create!(title: "Siamese cat inside a hat", description: Faker::Lorem.paragraph, url: "https://assets.mixkit.co/videos/preview/mixkit-siamese-cat-inside-a-hat-4103-large.mp4", user_id: user3.id)
+
+Video.create!(title: "A couple of cats in the snow", description: Faker::Lorem.paragraph, url: "https://assets.mixkit.co/videos/preview/mixkit-a-couple-of-cats-in-the-snow-9949-large.mp4", user_id: user3.id)
