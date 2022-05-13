@@ -13,16 +13,12 @@
 }
 
 .thumbnail {
-  /* width: 300px; */
   width: 100%;
-  /* border-top-left-radius: 20px;
-  border-top-right-radius: 20px; */
   border-radius: 20px;
 }
 
 .vid {
   padding: 28px 0;
-  /* height: 164px; */
   width: 100%;
   background-color: black;
 }

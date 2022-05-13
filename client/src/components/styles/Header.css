@@ -1,0 +1,12 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  /* width: 100%; */
+  height: fit-content;
+  padding: 2px 10px;
+}
+
+.Header h1 {
+  font-size: 20px;
+}

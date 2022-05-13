@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./styles/Video.css";
+import "./styles/Header.css";
+import Header from "./Header";
 import Videos from "./Videos";
 
 function App() {
@@ -22,7 +24,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <h1>CatTube</h1>
+        <Header />
         <Switch>
           <Route path="/testing">
             <h1>Test Route</h1>
