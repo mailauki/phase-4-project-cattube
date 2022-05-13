@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
 
 function Video({video}) {
-  const { id, title, description, url } = video
-  const thumbnail = url.split("/")[4]
+  // const { title, description, url } = video
+  const thumbnail = video.url.split("/")[4]
 
   return(
-    <div className="Video" onClick={(event) => console.log(video)}>
-      <Link to={`/videos/${id}`}>
-        {thumbnail === "preview" ? <video src={url+"?autoplay=0showinfo=0&controls=0"} title={title} frameborder="0" /> : <img src={`https://img.youtube.com/vi/${thumbnail}/hqdefault.jpg`} alt={title} />}
-        <h3>{title}</h3>
-        <p>{description}</p>
+    <div className="Video">
+      <Link to={`/videos/${video.id}`}>
+        {thumbnail === "preview" ? <video className="thumbnail vid" src={video.url+"?autoplay=0showinfo=0&controls=0"} title={video.title} /> : <img className="thumbnail" src={`https://img.youtube.com/vi/${thumbnail}/hqdefault.jpg`} alt={video.title} />}
+        <div className="info">
+          <div className="title">
+            <h3>{video.title}</h3>
+            <button>♡</button> {/* ♥ */}
+          </div>
+          <p>{video.short_description}</p>
+        </div>
       </Link>
     </div>
   )

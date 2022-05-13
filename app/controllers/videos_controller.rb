@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  skip_before_action :authorize, only: [:index, :show]
 
   def index
     videos = Video.all
@@ -11,7 +12,8 @@ class VideosController < ApplicationController
   end
 
   def create
-    video = Video.create!(video_params)
+    video = @current_user.videos.create!(video_params)
+    render json: video, status: :created
   end
 
   def update

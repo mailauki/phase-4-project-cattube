@@ -1,0 +1,56 @@
+.VideoContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 10px 40px;
+}
+
+.Video {
+  width: 1fr;
+  background-color: black;
+  border-radius: 20px;
+  color: white;
+}
+
+.thumbnail {
+  /* width: 300px; */
+  width: 100%;
+  /* border-top-left-radius: 20px;
+  border-top-right-radius: 20px; */
+  border-radius: 20px;
+}
+
+.vid {
+  padding: 28px 0;
+  /* height: 164px; */
+  width: 100%;
+  background-color: black;
+}
+
+.Video a {
+  text-decoration: none;
+}
+
+.Video .title {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
+  height: fit-content;
+  font-size: 15px;
+}
+
+.Video .info {
+  padding: 0 6px;
+  color: white;
+}
+
+.Video button {
+  width: 40px;
+  height: 40px;
+  font-size: 26px;
+  border-radius: 6px;
+  border: 2px solid white;
+  background-color: #eee;
+  margin: auto 0;
+}
