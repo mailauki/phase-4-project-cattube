@@ -5,5 +5,9 @@ class VideoSerializer < ActiveModel::Serializer
     "#{self.object.description[0..34]}..."
   end
 
+  # def likes_total
+  #   object.memberships.map{ |membership| membership.charge }.sum
+  # end
+
   belongs_to :user
 end

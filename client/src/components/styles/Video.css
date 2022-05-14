@@ -50,3 +50,43 @@
   background-color: #eee;
   margin: auto 0;
 }
+
+.VideoProfile {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 40px;
+}
+
+.videoContent {
+  width: 100%;
+  margin-right: 15px;
+  background-color: #eee;
+  border-radius: 20px;
+}
+
+.videoContent iframe {
+  min-width: 560px;
+  min-height: 315px;
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.creator {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  height: fit-content;
+}
+
+.Comments {
+  width: 100%;
+  margin-left: 15px;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.videoInfo {
+  padding: 10px;
+}

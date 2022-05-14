@@ -4,9 +4,15 @@
   align-content: center;
   /* width: 100%; */
   height: fit-content;
-  padding: 2px 10px;
+  padding: 2px 30px;
+  background-color: #000aff9d;
 }
 
 .Header h1 {
   font-size: 20px;
+}
+
+.Header a {
+  color: white;
+  text-decoration: none;
 }
