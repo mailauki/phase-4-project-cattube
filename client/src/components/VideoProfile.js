@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Comment from "./Comment";
 
 function VideoProfile() {
   let { id } = useParams()
-  const [video, setVideo] = useState({title: "no title", description: "no description", url: "https://www.youtube.com/watch?v=W86cTIoMv2U", user: {username: "no username", videos_total: 0}})
+  const [video, setVideo] = useState({title: "no title", description: "no description", url: "https://www.youtube.com/watch?v=W86cTIoMv2U", user: {username: "no username", videos_total: 0}, comments: {text: "no text", user_name: "no name"}})
 
   useEffect(() => {
     fetch(`/videos/${id}`)
       .then(res => res.json())
       .then(data => setVideo(data))
   }, []);
+
+  console.log(video)
 
   return (
     <div className="VideoProfile">
@@ -29,6 +32,7 @@ function VideoProfile() {
       </div>
       <div className="Comments">
         <h4>Comments</h4>
+        {video.comments.map(comment => <Comment key={comment.id} comment={comment} />)}
       </div>
     </div>
   )

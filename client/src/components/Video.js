@@ -6,7 +6,7 @@ function Video({video}) {
 
   return(
     <div className="Video">
-      <Link to={`/videos/${video.id}`}>
+      <Link to={`/${video.id}`}>
         {thumbnail === "preview" ? <video className="thumbnail vid" src={video.url+"?autoplay=0showinfo=0&controls=0"} title={video.title} /> : <img className="thumbnail" src={`https://img.youtube.com/vi/${thumbnail}/hqdefault.jpg`} alt={video.title} />}
         <div className="info">
           <div className="title">

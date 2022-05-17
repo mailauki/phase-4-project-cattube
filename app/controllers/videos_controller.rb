@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show]
+  # skip_before_action :authorize, only: [:index, :show]
 
   def index
     videos = Video.all
@@ -8,7 +8,7 @@ class VideosController < ApplicationController
 
   def show
     video = find_video
-    render json: video
+    render json: video, serializer: VideoCommentSerializer
   end
 
   def create
