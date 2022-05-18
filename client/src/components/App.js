@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import "./styles/Video.css";
-import "./styles/Header.css";
+import "../styles/Video.css";
+import "../styles/Header.css";
 import Header from "./Header";
 import Videos from "./Videos";
 import VideoProfile from "./VideoProfile";

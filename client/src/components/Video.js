@@ -7,7 +7,15 @@ function Video({video}) {
   return(
     <div className="Video">
       <Link to={`/${video.id}`}>
-        {thumbnail === "preview" ? <video className="thumbnail vid" src={video.url+"?autoplay=0showinfo=0&controls=0"} title={video.title} /> : <img className="thumbnail" src={`https://img.youtube.com/vi/${thumbnail}/hqdefault.jpg`} alt={video.title} />}
+        {thumbnail ? (
+          thumbnail === "preview" ? (
+              <video className="thumbnail vid" src={video.url+"?autoplay=0showinfo=0&controls=0"} title={video.title} />
+            ) : (
+              <img className="thumbnail" src={`https://img.youtube.com/vi/${thumbnail}/hqdefault.jpg`} alt={video.title} />
+            )
+        ) : (
+          <img className="thumbnail" src="https://via.placeholder.com/560x315" alt="placeholder" />
+        )}
         <div className="info">
           <div className="title">
             <h3>{video.title}</h3>

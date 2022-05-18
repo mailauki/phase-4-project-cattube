@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Video from "./Video";
 
 function Videos() {
-  const [videos, setVideos] = useState([{title: "no title", description: "no description", url: "https://www.youtube.com/watch?v=W86cTIoMv2U"}]);
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     fetch("/videos")
@@ -12,7 +12,15 @@ function Videos() {
 
   return(
     <div className="VideoContainer">
-      {videos.map(video => <Video key={`video${video.id}`} video={video}/>)}
+      {videos.length > 0 ? (
+        videos.map(video => (
+          <Video key={video.id} video={video} />
+        ))
+      ) : (
+        <>
+          <h2>No Videos Found</h2>
+        </>
+      )}
     </div>
   )
 }
