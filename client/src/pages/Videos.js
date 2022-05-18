@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
-import Video from "./Video";
+import Video from "../components/Video";
 
 function Videos() {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     fetch("/videos")
-      .then(res => res.json())
-      .then(data => setVideos(data))
+      .then((res) => res.json())
+      .then((data) => setVideos(data))
   }, []);
 
   return(
     <div className="VideoContainer">
       {videos.length > 0 ? (
-        videos.map(video => (
+        videos.map((video) => (
           <Video key={video.id} video={video} />
         ))
       ) : (

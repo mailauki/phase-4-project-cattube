@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Comment from "./Comment";
+import Comment from "../components/Comment";
 
 function VideoProfile() {
   let { id } = useParams()
@@ -40,7 +40,7 @@ function VideoProfile() {
             <div className="Comments">
               <h4>Comments</h4>
               {video.comments ? (
-                video.comments.map(comment => (
+                video.comments.map((comment) => (
                   <Comment key={comment.id} comment={comment} />
                 ))
               ) : (

@@ -1,0 +1,29 @@
+.Login, .Signup {
+  text-align: center;
+}
+
+.Form {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.formInput {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.formInput input {
+  height: 30px;
+  padding: 0 8px;
+}
+
+.Form .button {
+  margin: 36px 0;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  font-weight: 600;
+}
