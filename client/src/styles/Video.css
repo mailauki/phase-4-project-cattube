@@ -77,23 +77,6 @@
   padding: 10px;
 }
 
-.creator {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: fit-content;
-  margin-top: 30px;
-  background-color: #ddd;
-  padding: 0 10px;
-  border-radius: 8px;
-}
-
-.creator button {
-  height: 40px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
 .Comments {
   width: 30%;
   background-color: #eee;
@@ -116,10 +99,6 @@
 
 .addComment button {
   margin-left: 10px;
-  font-weight: 600;
-  font-size: 18px;
-  height: 28px;
-  width: 28px;
 }
 
 .Comments li {

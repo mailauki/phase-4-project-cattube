@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Comments from "../components/Comments";
 
-function VideoProfile({user}) {
+function VideoProfile({currentUser}) {
   let { id } = useParams()
   const [video, setVideo] = useState({})
 
@@ -10,7 +10,7 @@ function VideoProfile({user}) {
     fetch(`/videos/${id}`)
       .then(res => res.json())
       .then(data => setVideo(data))
-  }, []);
+  }, [])
 
   return (
     <div className="VideoProfile">
@@ -24,7 +24,9 @@ function VideoProfile({user}) {
                 <div className="creator">
                   {video.user ? (
                     <>
-                      <p style={{fontWeight: 600}}>{video.user.username}</p>
+                      <Link to={`/users/${video.user.id}`}>
+                        <p style={{fontWeight: 600}}>{video.user.username}</p>
+                      </Link>
                       <p>## followers</p>
                       <p>{video.user.videos_total} videos</p>
                       <button>Follow</button>
@@ -37,7 +39,7 @@ function VideoProfile({user}) {
                 </div>
               </div>
             </div>
-            <Comments comments={video.comments} id={id} user={user} />
+            <Comments comments={video.comments} id={id} currentUser={currentUser} />
           </>
         ) : (
           <>

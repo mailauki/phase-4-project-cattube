@@ -1,0 +1,38 @@
+.Profile {
+  margin: 10px 40px;
+}
+
+.userContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Lists {
+  display: flex;
+  flex-direction: column;
+  width: 28%;
+  background-color: #ddd;
+}
+
+.Lists div {
+  padding: 10px;
+}
+
+.userVideos {
+  width: 64%;
+  background-color: #ddd;
+  padding: 10px;
+}
+
+.userVideoContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin: 10px 40px;
+}
+
+.addVideo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

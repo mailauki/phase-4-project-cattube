@@ -1,17 +1,15 @@
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
-function Header({user}) {
-  let pathname = useLocation().pathname
-
+function Header({currentUser, pathname}) {
   return(
     <div className="Header">
       <Link to="/">
         <h1>CatTube</h1>
       </Link>
-      {user ? (
+      {currentUser ? (
         <div className="user">
-          <NavLink to="/userpage">
-            <p>{user.username}</p>
+          <NavLink to="/users/me">
+            <p>{currentUser.username}</p>
           </NavLink>
         </div>
       ) : (

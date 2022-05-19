@@ -1,20 +1,11 @@
-import { useState, useEffect } from "react";
 import Video from "./Video";
 
-function Videos() {
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-    fetch("/videos")
-      .then((res) => res.json())
-      .then((data) => setVideos(data))
-  }, []);
-
+function Videos({videos, pathname}) {
   return(
-    <div className="VideoContainer">
+    <div className={pathname === "/" ? "VideoContainer" : "userVideoContainer"}>
       {videos.length > 0 ? (
         videos.map((video) => (
-          <Video key={video.id} video={video} />
+          <Video key={video.id} video={video} pathname={pathname} />
         ))
       ) : (
         <>

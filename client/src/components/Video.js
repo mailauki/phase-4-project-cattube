@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Video({video}) {
+function Video({video, pathname}) {
   const { title, short_description, url } = video
   const thumbnail = url.split("/")[4]
 
@@ -21,7 +21,7 @@ function Video({video}) {
             <h3>{title}</h3>
             <button>♡</button> {/* ♥ */}
           </div>
-          <p>{short_description}</p>
+          {pathname === "/" ? <p>{short_description}</p> : <></> }
         </div>
       </Link>
     </div>
