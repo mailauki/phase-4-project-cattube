@@ -4,6 +4,7 @@
   align-content: center;
   /* width: 100%; */
   height: fit-content;
+  margin-bottom: 20px;
   padding: 2px 30px;
   background-color: #000aff9d;
 }

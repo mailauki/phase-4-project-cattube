@@ -9,7 +9,7 @@ function Video({video}) {
       <Link to={`/${video.id}`}>
         {thumbnail ? (
           thumbnail === "preview" ? (
-              <video className="thumbnail vid" src={url+"?autoplay=0showinfo=0&controls=0"} title={title} />
+              <video className="thumbnail vid" src={url} title={title} />
             ) : (
               <img className="thumbnail" src={`https://img.youtube.com/vi/${thumbnail}/hqdefault.jpg`} alt={title} />
             )

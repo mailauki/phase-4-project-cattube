@@ -11,7 +11,7 @@ function Header({user}) {
       {user ? (
         <div className="user">
           <NavLink to="/userpage">
-            <p>{user}</p>
+            <p>{user.username}</p>
           </NavLink>
         </div>
       ) : (

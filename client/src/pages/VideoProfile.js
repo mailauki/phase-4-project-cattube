@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Comment from "../components/Comment";
+import Comments from "../components/Comments";
 
-function VideoProfile() {
+function VideoProfile({user}) {
   let { id } = useParams()
   const [video, setVideo] = useState({})
 
@@ -37,18 +37,7 @@ function VideoProfile() {
                 </div>
               </div>
             </div>
-            <div className="Comments">
-              <h4>Comments</h4>
-              {video.comments ? (
-                video.comments.map((comment) => (
-                  <Comment key={comment.id} comment={comment} />
-                ))
-              ) : (
-                <>
-                  <p>No Comments Found</p>
-                </>
-              )}
-            </div>
+            <Comments comments={video.comments} id={id} user={user} />
           </>
         ) : (
           <>

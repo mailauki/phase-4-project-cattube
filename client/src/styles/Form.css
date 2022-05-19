@@ -27,3 +27,11 @@
   height: 40px;
   font-weight: 600;
 }
+
+.Errors {
+  background-color: indianred;
+  font-weight: 600;
+  padding: 10px;
+  text-align: center;
+  margin: 10px auto;
+}

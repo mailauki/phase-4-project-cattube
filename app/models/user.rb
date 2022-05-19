@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # has_many :videos, through: :likes
   # has_many :videos, through: :comments
 
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
 
   has_secure_password
 end
