@@ -39,11 +39,15 @@ function Login({onLogin}) {
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <button className="formInput button" type="submit">Login</button>
-        <div className={errors.length > 0 ? "Errors" : ""}>
-          {errors.map((err) => (
-            <p key={err}>{err}</p>
-          ))}
-        </div>
+        {errors ? (
+          <div className={errors.length > 0 ? "Errors" : ""}>
+            {errors.map((err) => (
+              <p key={err}>{err}</p>
+            ))}
+          </div>
+        ) : (
+          <></>
+        )}
       </form>
     </div>
   )
