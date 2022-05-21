@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   resources :comments, only: [:create]
   resources :videos
   resources :users, only: [:index, :show, :create, :delete]
-  
-  get '/hello', to: 'application#hello_world'
 
   post "/signup", to: "users#create"
   get "/me", to: "users#me"

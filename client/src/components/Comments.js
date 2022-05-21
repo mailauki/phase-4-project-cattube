@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Comment from "../components/Comment";
+import Errors from "../components/Errors";
 
 function Comments({comments, id, currentUser}) {
   const [newComment, setNewComment] = useState("")
@@ -7,22 +8,31 @@ function Comments({comments, id, currentUser}) {
 
 
   function handleSumbit(e) {
-    e.preventDefault();
+    e.preventDefault()
+
+    let comment
+
+    if(currentUser) {
+      comment = {text: newComment, user_id: currentUser.id, video_id: id}
+    }
+    else {
+      comment = {text: newComment, user_id: currentUser, video_id: id}
+    }
+
     fetch("/comments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({text: newComment, user_id: currentUser.id, video_id: id})
+      body: JSON.stringify(comment)
     })
-     .then((r) => {
-      if (r.ok) {
-        r.json().then((data) => console.log(data))
-      } else {
-        r.json().then((err) => setErrors(err.errors))
-      }
-     })
-    console.log({text: newComment, user_id: currentUser.id, video_id: id})
+      .then((r) => {
+        if (r.ok) {
+          r.json().then((data) => console.log(data))
+        } else {
+          r.json().then((err) => setErrors(err.errors))
+        }
+      })
   }
 
   return(
@@ -32,11 +42,7 @@ function Comments({comments, id, currentUser}) {
         <input type="text" placeholder="add a new comment" value={newComment} onChange={(e) => setNewComment(e.target.value)} />
         <button type="sumbit" className="addButton">+</button>
       </form>
-      <div className={errors.length > 0 ? "Errors" : ""}>
-        {errors.map((err) => (
-          <p key={err}>{err}</p>
-        ))}
-      </div>
+      <Errors errors={errors} />
       {comments ? (
         comments.map((comment) => (
           <Comment key={comment.id} comment={comment} />

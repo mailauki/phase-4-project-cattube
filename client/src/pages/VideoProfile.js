@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Comments from "../components/Comments";
+import User from "../components/User";
 
 function VideoProfile({currentUser}) {
   let { id } = useParams()
@@ -21,22 +22,7 @@ function VideoProfile({currentUser}) {
               <div className="videoInfo">
                 <h3>{video.title}</h3>
                 <p>{video.description}</p>
-                <div className="creator">
-                  {video.user ? (
-                    <>
-                      <Link to={`/users/${video.user.id}`}>
-                        <p style={{fontWeight: 600}}>{video.user.username}</p>
-                      </Link>
-                      <p>## followers</p>
-                      <p>{video.user.videos_total} videos</p>
-                      <button>Follow</button>
-                    </>
-                  ) : (
-                    <>
-                      <p>No User Found</p>
-                    </>
-                  )}
-                </div>
+                <User user={video.user} currentUser={currentUser} />
               </div>
             </div>
             <Comments comments={video.comments} id={id} currentUser={currentUser} />

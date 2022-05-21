@@ -13,18 +13,13 @@ import Signup from "../pages/Signup";
 import UserProfile from "../pages/UserProfile";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null)
   let pathname = useLocation().pathname
 
   useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-
     fetch("/me")
       .then((r) => r.json())
-      .then((data) => setCurrentUser(data));
+      .then((data) => setCurrentUser(data))
   }, []);
 
   // console.log({currentUser})
@@ -33,12 +28,6 @@ function App() {
       <div className="App">
         <Header currentUser={currentUser} pathname={pathname} />
           <Switch>
-            <Route path="/testing">
-              <h1>Test Route</h1>
-            </Route>
-            <Route path="/hello">
-              <h1>Page Count: {count}</h1>
-            </Route>
             <Route path="/signup">
               <Signup onLogin={setCurrentUser} />
             </Route>
@@ -49,7 +38,7 @@ function App() {
               <UserProfile currentUser={currentUser} pathname={pathname} />
             </Route>
             <Route path="/users/:id">
-              <UserProfile currentUser={currentUser} pathname={pathname} />
+              <UserProfile currentUser={currentUser} onLogout={setCurrentUser} pathname={pathname} />
             </Route>
             <Route path="/:id">
               <VideoProfile currentUser={currentUser} pathname={pathname} />

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router";
+import Errors from "../components/Errors";
 
 function Signup({onLogin}) {
   const [username, setUsername] = useState("");
@@ -45,11 +46,7 @@ function Signup({onLogin}) {
         <input type="password" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
         </div>
         <button className="formInput button">Signup</button>
-        <div className={errors.length > 0 ? "Errors" : ""}>
-          {errors.map((err) => (
-            <p key={err}>{err}</p>
-          ))}
-        </div>
+        <Errors errors={errors} />
       </form>
     </div>
   )

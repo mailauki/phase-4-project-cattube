@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useHistory } from "react-router";
+import Errors from "../components/Errors";
 
 function Login({onLogin}) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
-  const history = useHistory();
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [errors, setErrors] = useState([])
+  const history = useHistory()
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -39,15 +40,7 @@ function Login({onLogin}) {
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <button className="formInput button" type="submit">Login</button>
-        {errors ? (
-          <div className={errors.length > 0 ? "Errors" : ""}>
-            {errors.map((err) => (
-              <p key={err}>{err}</p>
-            ))}
-          </div>
-        ) : (
-          <></>
-        )}
+        <Errors errors={errors} />
       </form>
     </div>
   )
