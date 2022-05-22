@@ -5,6 +5,7 @@ import "../styles/Video.css";
 import "../styles/Header.css";
 import "../styles/Form.css";
 import "../styles/User.css";
+import "../styles/Lists.css";
 import Header from "./Header";
 import Home from "../pages/Home";
 import VideoProfile from "../pages/VideoProfile";
@@ -38,13 +39,13 @@ function App() {
               <UserProfile currentUser={currentUser} pathname={pathname} />
             </Route>
             <Route path="/users/:id">
-              <UserProfile currentUser={currentUser} onLogout={setCurrentUser} pathname={pathname} />
+              <UserProfile currentUser={currentUser} pathname={pathname} />
             </Route>
             <Route path="/:id">
               <VideoProfile currentUser={currentUser} pathname={pathname} />
             </Route>
             <Route path="/">
-              <Home pathname={pathname} />
+              <Home pathname={pathname} currentUser={currentUser} />
             </Route>
           </Switch>
       </div>

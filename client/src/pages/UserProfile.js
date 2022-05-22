@@ -26,7 +26,7 @@ function UserProfile({currentUser, pathname}) {
         <div className="Profile">
           <User user={user} currentUser={currentUser} pathname={pathname} />
           <div className="userContent">
-            <Lists followees={user.followees} />
+            <Lists followees={user.followees} likes={user.likes} />
             <div className="userVideos">
               <div className="addVideo">
                 <h4>Videos</h4>

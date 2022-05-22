@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import LikeBtn from "../components/LikeBtn";
 
-function Video({video, pathname}) {
+function Video({video, currentUser}) {
   const { title, short_description, url } = video
   const thumbnail = url.split("/")[4]
 
@@ -16,14 +17,18 @@ function Video({video, pathname}) {
         ) : (
           <img className="thumbnail" src="https://via.placeholder.com/560x315" alt="placeholder" />
         )}
-        <div className="info">
-          <div className="title">
-            <h3>{title}</h3>
-            <button>♡</button> {/* ♥ */}
-          </div>
-          {pathname === "/" ? <p>{short_description}</p> : <></> }
-        </div>
       </Link>
+      <div className="info">
+        <div className="titleLike">
+          <Link to={`/${video.id}`}>
+            <h3>{title}</h3>
+          </Link>
+          <LikeBtn currentUser={currentUser} video={video} />
+        </div>
+        <Link to={`/${video.id}`}>
+          <p>{short_description}</p>
+        </Link>
+      </div>
     </div>
   )
 }

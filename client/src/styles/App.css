@@ -1,7 +1,8 @@
 .App {
-  /* background-color: #222; */
+  background-color: #222;
   min-height: 100vh;
   padding-bottom: 60px;
+  color: white;
 }
 
 .creator {
@@ -10,9 +11,15 @@
   align-items: center;
   height: fit-content;
   margin-top: 30px;
-  /* background-color: #ddd; */
+  background-color: #333;
+  margin: 10px auto;
   padding: 0 10px;
   border-radius: 8px;
+}
+
+.creator a {
+  text-decoration: none;
+  color: white;
 }
 
 .creator button {
@@ -26,4 +33,48 @@
   font-size: 18px;
   height: 28px;
   width: 28px;
+}
+
+.titleLike {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
+  height: fit-content;
+  padding: 4px 0;
+  margin: 0;
+  height: 20%;
+}
+
+.titleLike h3, .titleLike a {
+  font-size: 100%;
+  width: 90%;
+  padding: 0;
+  margin: 0;
+}
+
+.titleLike button {
+  font-size: 100%;
+  max-width: 14%;
+  padding: 0;
+  margin: 0;
+  background-color: #eee0;
+  border: none;
+  color: white;
+}
+
+.liked::before {
+  content: "❤️";
+}
+
+.liked:hover::before {
+  content: "💔";
+}
+
+.not-liked::before {
+  content: "🤍";
+}
+
+.not-liked:hover::before {
+  content: "💗";
 }

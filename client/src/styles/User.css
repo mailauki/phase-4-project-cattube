@@ -7,37 +7,20 @@
   justify-content: space-between;
 }
 
-.Lists {
-  display: flex;
-  flex-direction: column;
-  width: 28%;
-  background-color: #ddd;
-}
-
-.Lists div {
-  padding: 10px;
-}
-
-.Lists .items {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
 .userVideos {
   width: 64%;
+  margin: 0;
+  padding: 0 10px 20px 10px;
   background-color: #ddd;
-  padding: 10px;
+  border-radius: 20px;
+  background-color: #444;
 }
 
 .userVideoContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
-  margin: 10px 40px;
+  margin: 10px;
 }
 
 .addVideo {

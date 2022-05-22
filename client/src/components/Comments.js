@@ -10,21 +10,12 @@ function Comments({comments, id, currentUser}) {
   function handleSumbit(e) {
     e.preventDefault()
 
-    let comment
-
-    if(currentUser) {
-      comment = {text: newComment, user_id: currentUser.id, video_id: id}
-    }
-    else {
-      comment = {text: newComment, user_id: currentUser, video_id: id}
-    }
-
     fetch("/comments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(comment)
+      body: JSON.stringify({text: newComment, user_id: currentUser ? currentUser : currentUser, video_id: id})
     })
       .then((r) => {
         if (r.ok) {

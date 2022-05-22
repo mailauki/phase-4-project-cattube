@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post "/login", to: "session#create"
   delete "/logout", to: "session#destroy"
   post "/follow", to: "friendships#create"
+  post "/like", to: "likes#create"
 
   get '*path',
       to: 'fallback#index',

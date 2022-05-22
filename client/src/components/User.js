@@ -10,12 +10,14 @@ function User({user, currentUser, pathname}) {
   
   function handleLogout() {
     console.log("logout")
+
     fetch("/logout", {
       method: "DELETE"
     })
       .then((r) => {
         if(r.ok) {
           // setUser(null)
+          // onLogout()
           history.push("/")
         }
       })

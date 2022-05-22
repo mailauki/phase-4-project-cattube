@@ -1,21 +1,13 @@
 function FollowBtn({currentUser, user, onError}) {
 
   function handleFollow() {
-    let following
-
-    if(currentUser) {
-      following = {followee_id: user.id, follower_id: currentUser.id}
-    }
-    else {
-      following = {followee_id: user.id, follower_id: currentUser}
-    }
 
     fetch("/follow", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(following),
+      body: JSON.stringify({followee_id: user.id, follower_id: currentUser ? currentUser : currentUser}),
     })
       .then((r) => {
         if (r.ok) {

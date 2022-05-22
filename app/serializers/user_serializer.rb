@@ -13,4 +13,5 @@ class UserSerializer < ActiveModel::Serializer
   has_many :comments
   has_many :followers
   has_many :followees
+  has_many :likes
 end
