@@ -8,10 +8,7 @@ class User < ApplicationRecord
   has_many :following_users, foreign_key: :followee_id, class_name: "Friendship"
   has_many :followers, through: :following_users
 
-  # has_many :videos, through: :likes
-  # has_many :videos, through: :comments
-
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9\s]+\z/i, message: "can only contain letters and numbers"}
 
   has_secure_password
 end

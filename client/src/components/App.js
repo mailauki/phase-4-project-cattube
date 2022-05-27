@@ -6,24 +6,31 @@ import "../styles/Header.css";
 import "../styles/Form.css";
 import "../styles/User.css";
 import "../styles/Lists.css";
+import "../styles/Comments.css";
 import Header from "./Header";
 import Home from "../pages/Home";
 import VideoProfile from "../pages/VideoProfile";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import UserProfile from "../pages/UserProfile";
+import AddVideo from "../pages/AddVideo";
+import EditVideo from "../pages/EditVideo";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
   let pathname = useLocation().pathname
 
+  let username = pathname.split("/")[1]
+  // console.log({username})
+
   useEffect(() => {
     fetch("/me")
-      .then((r) => r.json())
-      .then((data) => setCurrentUser(data))
-  }, []);
-
-  // console.log({currentUser})
+      .then((r) => {
+        if (r.ok) {
+          r.json().then((user) => setCurrentUser(user))
+        }
+      })
+  }, [])
 
   return (
       <div className="App">
@@ -35,14 +42,20 @@ function App() {
             <Route path="/login">
               <Login onLogin={setCurrentUser} />
             </Route>
-            <Route path="/users/me">
-              <UserProfile currentUser={currentUser} pathname={pathname} />
+            <Route path="/new">
+              <AddVideo />
             </Route>
-            <Route path="/users/:id">
-              <UserProfile currentUser={currentUser} pathname={pathname} />
+            <Route path="/videos/:id/edit">
+              <EditVideo />
             </Route>
-            <Route path="/:id">
-              <VideoProfile currentUser={currentUser} pathname={pathname} />
+            <Route path="/videos/:id">
+              <VideoProfile currentUser={currentUser} pathname={pathname} onLogout={setCurrentUser} />
+            </Route>
+            <Route path="/me">
+              <UserProfile currentUser={currentUser} pathname={pathname} onLogout={setCurrentUser} />
+            </Route>
+            <Route path="/:username">
+              <UserProfile currentUser={currentUser} pathname={pathname} />
             </Route>
             <Route path="/">
               <Home pathname={pathname} currentUser={currentUser} />

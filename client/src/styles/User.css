@@ -2,12 +2,12 @@
   margin: 10px 40px;
 }
 
-.userContent {
+.user-content {
   display: flex;
   justify-content: space-between;
 }
 
-.userVideos {
+.user-videos {
   width: 64%;
   margin: 0;
   padding: 0 10px 20px 10px;
@@ -16,14 +16,14 @@
   background-color: #444;
 }
 
-.userVideoContainer {
+.user-video-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   margin: 10px;
 }
 
-.addVideo {
+.add-video {
   display: flex;
   justify-content: space-between;
   align-items: center;

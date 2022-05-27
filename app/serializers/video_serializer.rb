@@ -1,8 +1,8 @@
 class VideoSerializer < ActiveModel::Serializer
-  attributes :id, :title, :url, :short_description
+  attributes :id, :title, :url, :short_description, :description, :user_id
 
   def short_description
-    "#{self.object.description[0..34]}..."
+    "#{self.object.description[0..34]}..." unless self.object.description.length === 0
   end
 
   belongs_to :user

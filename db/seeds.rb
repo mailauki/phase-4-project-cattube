@@ -8,11 +8,11 @@
 
 puts "Seeding users..."
 
-user1 = User.create!(username: Faker::Internet.username, password: Faker::Internet.password)
+user1 = User.create!(username: Faker::Internet.username(separators: ""), password: Faker::Internet.password)
 
-user2 = User.create!(username: Faker::Internet.username, password: Faker::Internet.password)
+user2 = User.create!(username: Faker::Internet.username(separators: ""), password: Faker::Internet.password)
 
-user3 = User.create!(username: Faker::Internet.username, password: Faker::Internet.password)
+user3 = User.create!(username: Faker::Internet.username(separators: ""), password: Faker::Internet.password)
 
 puts "Done seeding users"
 puts "Seeding videos..."

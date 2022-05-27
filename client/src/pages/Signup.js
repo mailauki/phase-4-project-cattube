@@ -22,7 +22,7 @@ function Signup({onLogin}) {
       .then((r) => {
         if (r.ok) {
           r.json().then((user) => onLogin(user))
-          history.push("/")
+          history.push("/me")
         } else {
           r.json().then((err) => setErrors(err.errors))
         }
@@ -33,19 +33,19 @@ function Signup({onLogin}) {
     <div className="Signup">
       <h1>Signup</h1>
       <form className="Form" onSubmit={handleSubmit}>
-        <div className="formInput">
+        <div className="form-input">
           <label>Username</label>
         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
         </div>
-        <div className="formInput">
+        <div className="form-input">
           <label>Password</label>
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <div className="formInput">
+        <div className="form-input">
           <label>Password Confirmation</label>
         <input type="password" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
         </div>
-        <button className="formInput button">Signup</button>
+        <button className="form-input button">Signup</button>
         <Errors errors={errors} />
       </form>
     </div>

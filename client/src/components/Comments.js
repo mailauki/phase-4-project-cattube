@@ -29,15 +29,21 @@ function Comments({comments, id, currentUser}) {
   return(
     <div className="Comments">
       <h4>Comments</h4>
-      <form className="addComment" onSubmit={handleSumbit}>
+      <form className="add-comment" onSubmit={handleSumbit}>
         <input type="text" placeholder="add a new comment" value={newComment} onChange={(e) => setNewComment(e.target.value)} />
-        <button type="sumbit" className="addButton">+</button>
+        <button type="sumbit" className="add-button button">+</button>
       </form>
       <Errors errors={errors} />
       {comments ? (
-        comments.map((comment) => (
-          <Comment key={comment.id} comment={comment} />
-        ))
+        comments.length > 0 ? (
+          comments.map((comment) => (
+            <Comment key={comment.id} comment={comment} />
+          ))
+        ) : (
+          <>
+            <p>No Comments Found</p>
+          </>
+        )
       ) : (
         <>
           <p>No Comments Found</p>

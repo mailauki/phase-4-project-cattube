@@ -1,38 +1,50 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Videos from "../components/Videos";
 import Lists from "../components/Lists";
 import User from "../components/User";
 
-function UserProfile({currentUser, pathname}) {
-  let { id }= useParams()
+function UserProfile({currentUser, pathname, onLogout}) {
+  // let { username }= useParams()
   const [user, setUser] = useState({})
 
+  // console.log({id})
+  // console.log(pathname)
+  let username = pathname.split("/")[1]
+  // console.log({username})
+  // console.log(currentUser)
+
   useEffect(() => {
-      pathname === "/users/me" ? (
-        fetch(`/users/${currentUser.id}`)
-          .then((r) => r.json())
-          .then((data) => setUser(data))
+      pathname === "/me" ? (
+        fetch("/me")
+          .then((r) => {
+            if (r.ok) {
+              r.json().then((user) => setUser(user))
+            }
+          })
       ) : (
-        fetch(`/users/${id}`)
-          .then((r) => r.json())
-          .then((data) => setUser(data))
+        fetch(`/${username}`)
+          .then((r) => {
+            if (r.ok) {
+              r.json().then((user) => setUser(user))
+            }
+          })
       )
-  }, [currentUser])
+  }, [pathname])
 
   return(
     <>
       {user ? (
         <div className="Profile">
-          <User user={user} currentUser={currentUser} pathname={pathname} />
-          <div className="userContent">
+          <User user={user} currentUser={currentUser} pathname={pathname} onLogout={onLogout} />
+          <div className="user-content">
             <Lists followees={user.followees} likes={user.likes} />
-            <div className="userVideos">
-              <div className="addVideo">
+            <div className="user-videos">
+              <div className="add-video">
                 <h4>Videos</h4>
-                {pathname === "/users/me" ? <button className="addButton">+</button> : <></>}
+                {pathname === "/me" ? <Link to="/new"><button className="add-button button">+</button></Link> : <></>}
               </div>
-              {user.videos ? <Videos videos={user.videos} pathname={pathname} /> : <p>No Videos Yet</p>}
+              {user.videos ? <Videos videos={user.videos} pathname={pathname} currentUser={currentUser} /> : <p>No Videos Yet</p>}
             </div>
           </div>
         </div>

@@ -6,12 +6,13 @@ class UsersController < ApplicationController
     render json: users
   end
 
-  def me
-    render json: @current_user
+  def show
+    user = User.find_by!(username: params[:username])
+    render json: user
   end
 
-  def show
-    user = User.find(params[:id])
+  def me
+    user = User.find_by(id: session[:user_id])
     render json: user
   end
 

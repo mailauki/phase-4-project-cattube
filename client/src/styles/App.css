@@ -22,23 +22,36 @@
   color: white;
 }
 
-.creator button {
+.creator .button {
   height: 40px;
-  border-radius: 4px;
-  font-weight: 600;
+  padding: 0 20px;
 }
 
-.addButton {
+.button {
+  color: white;
+  background-color: #444;
+  border-radius: 4px;
+  border: none;
   font-weight: 600;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: #000aff9d;
+}
+
+.add-button {
   font-size: 18px;
   height: 28px;
   width: 28px;
+  padding: 0 8px;
+  background-color: #333;
 }
 
-.titleLike {
+.title-like {
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  align-items: flex-start;
   width: 100%;
   height: fit-content;
   padding: 4px 0;
@@ -46,14 +59,14 @@
   height: 20%;
 }
 
-.titleLike h3, .titleLike a {
+.title-like h3, .title-like a {
   font-size: 100%;
   width: 90%;
   padding: 0;
   margin: 0;
 }
 
-.titleLike button {
+.title-like button {
   font-size: 100%;
   max-width: 14%;
   padding: 0;
@@ -77,4 +90,51 @@
 
 .not-liked:hover::before {
   content: "💗";
+}
+
+.title-edit-delete {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: fit-content;
+  padding: 4px 0;
+  margin: 0;
+  height: 20%;
+}
+
+.title-edit-delete a {
+  font-size: 100%;
+  width: 68%;
+  height: fit-content;
+  padding: 0;
+  margin: 0;
+}
+
+.title-edit-delete h3 {
+  width: 100%;
+  height: fit-content;
+  padding: 0;
+  margin: 0;
+}
+
+.title-edit-delete div {
+  font-size: 100%;
+  max-width: 30%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  color: white;
+}
+
+.EditDelete {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 100%;
+}
+
+.EditDelete button {
+  height: 100%;
+  padding: 8px;
+  margin: 2px;
 }

@@ -1,14 +1,14 @@
 function LikeBtn({currentUser, video, onError}) {
 
-  const found = currentUser ? video.likes ? video.likes.find(like => like.user_id === currentUser.id) : video.likes : null
+  const ifFound = currentUser ? video.likes ? video.likes.find(like => like.user_id === currentUser.id) : video.likes : null
 
-  function handleLike() {
+  function handleLike(e) {
     fetch("/like", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({user_id: currentUser ? currentUser : currentUser, video_id: video.id}),
+      body: JSON.stringify(currentUser ? {user_id: currentUser.id, video_id: video.id} : {})
     })
       .then((r) => {
         if (r.ok) {
@@ -17,10 +17,15 @@ function LikeBtn({currentUser, video, onError}) {
           r.json().then((err) => onError(err.errors))
         }
       })
+      .then((data) => {
+        console.log(data)
+        e.target.classList.remove("not-liked")
+        e.target.classList.add("liked")
+      })
   }
 
   return(
-    <button onClick={handleLike}>{found ? <span className="liked" /> : <span className="not-liked" />}</button>
+    <button onClick={handleLike}>{ifFound ? <span className="liked" /> : <span className="not-liked" />}</button>
   )
 }
 

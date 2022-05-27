@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import FollowBtn from "../components/FollowBtn";
 import Errors from "../components/Errors";
 
-function User({user, currentUser, pathname}) {
+function User({user, currentUser, pathname, onLogout}) {
   const [errors, setErrors] = useState([])
   const history = useHistory()
   
@@ -16,25 +16,27 @@ function User({user, currentUser, pathname}) {
     })
       .then((r) => {
         if(r.ok) {
-          // setUser(null)
-          // onLogout()
+          onLogout(null)
           history.push("/")
         }
       })
   }
+
+  const ifUser = user && currentUser ? currentUser.id === user.id : null
+  // const linkTo = ifUser ? "/me" : `/${user.username}`
 
   return(
     <>
       <div className="creator">
         {user ? (
           <>
-            <Link to={`/users/${user.id}`}>
+            <Link to={ifUser ? "/me" : `/${user.username}`}>
               <p style={{fontWeight: 600}}>{user.username}</p>
             </Link>
             <p>{user.followers_total} followers</p>
             <p>{user.videos_total} videos</p>
-            {pathname === "/users/me" ? (
-              <button onClick={handleLogout}>Logout</button>
+            {ifUser ? (
+              <button onClick={handleLogout} className="button">Logout</button>
             ) : (
               <FollowBtn currentUser={currentUser} user={user} onError={setErrors} />
             )}

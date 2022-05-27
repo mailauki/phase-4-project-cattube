@@ -8,7 +8,7 @@ function Header({currentUser, pathname}) {
       </Link>
       {currentUser ? (
         <div className="user">
-          <NavLink to="/users/me">
+          <NavLink to="/me">
             <p>{currentUser.username}</p>
           </NavLink>
         </div>
