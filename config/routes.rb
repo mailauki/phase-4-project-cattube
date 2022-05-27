@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :likes, only: [:show]
+  resources :likes
   resources :comments, only: [:create]
   resources :videos
   resources :users
@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   delete "/logout", to: "session#destroy"
 
   post "/follow", to: "friendships#create"
-  delete "/unfollow", to: "friendships#destroy"
+  delete "/:id/unfollow", to: "friendships#destroy"
 
   post "/like", to: "likes#create"
-  delete "/unlike", to: "likes#destroy"
+  delete "/:id/unlike", to: "likes#destroy"
 
   post "/new", to: "videos#create"
   patch "/:id/edit", to: "videos#update"
