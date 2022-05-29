@@ -1,19 +1,13 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Videos from "../components/Videos";
 import Lists from "../components/Lists";
 import User from "../components/User";
 
 function UserProfile({currentUser, pathname, onLogout}) {
-  // let { username }= useParams()
   const [user, setUser] = useState({})
   const [isLoading, setIsLoading] = useState(true)
-
-  // console.log({id})
-  // console.log(pathname)
   let username = pathname.split("/")[1]
-  // console.log({username})
-  // console.log(currentUser)
 
   useEffect(() => {
       pathname === "/me" ? (
@@ -51,7 +45,7 @@ function UserProfile({currentUser, pathname, onLogout}) {
                 <h4>Videos</h4>
                 {pathname === "/me" ? <Link to="/new"><button className="add-button button">+</button></Link> : <></>}
               </div>
-              {user.videos ? <Videos videos={user.videos} pathname={pathname} currentUser={currentUser} /> : <p>No Videos Yet</p>}
+              <Videos videos={user.videos} pathname={pathname} currentUser={currentUser} />
             </div>
           </div>
         </div>

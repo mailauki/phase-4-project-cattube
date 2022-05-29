@@ -20,9 +20,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
   let pathname = useLocation().pathname
 
-  let username = pathname.split("/")[1]
-  // console.log({username})
-
   useEffect(() => {
     fetch("/me")
       .then((r) => {

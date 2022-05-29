@@ -3,16 +3,21 @@ import Videos from "../components/Videos";
 
 function Home({pathname, currentUser}) {
   const [videos, setVideos] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     fetch("/videos")
-      .then((res) => res.json())
-      .then((data) => setVideos(data))
+      .then((r) => {
+        if (r.ok) {
+          setIsLoading(false)
+          r.json().then((data) => setVideos(data))
+        }
+      })
   }, [])
 
   return(
     <>
-      {videos ? (
+      {!isLoading ? (
         <Videos videos={videos} pathname={pathname} currentUser={currentUser} />
       ) : (
         <>

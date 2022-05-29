@@ -20,8 +20,7 @@ function EditVideo({video}) {
     })
       .then((r) => {
         if (r.ok) {
-          r.json().then((data) => console.log(data))
-          history.push("/me")
+          r.json().then((data) => history.push("/me"))
         } else {
           r.json().then((err) => setErrors(err.errors))
         }

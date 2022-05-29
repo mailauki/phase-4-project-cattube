@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useHistory } from "react-router";
 import Errors from "../components/Errors";
 
-function AddVideo({newVideo}) {
+function AddVideo() {
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [url, setUrl] = useState("")
@@ -20,8 +20,7 @@ function AddVideo({newVideo}) {
     })
       .then((r) => {
         if (r.ok) {
-          r.json().then((data) => console.log(data))
-          history.push("/me")
+          r.json().then((data) => history.push("/me"))
         } else {
           r.json().then((err) => setErrors(err.errors))
         }

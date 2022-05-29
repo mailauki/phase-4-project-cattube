@@ -2,10 +2,9 @@ import { useState } from "react";
 import Comment from "../components/Comment";
 import Errors from "../components/Errors";
 
-function Comments({comments, id, currentUser}) {
+function Comments({comments, id, onComment}) {
   const [newComment, setNewComment] = useState("")
   const [errors, setErrors] = useState([])
-
 
   function handleSumbit(e) {
     e.preventDefault()
@@ -15,9 +14,11 @@ function Comments({comments, id, currentUser}) {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({text: newComment, user_id: currentUser ? currentUser : currentUser, video_id: id})
+      body: JSON.stringify({text: newComment, video_id: id})
     })
       .then((r) => {
+        onComment(newComment)
+        setNewComment("")
         if (r.ok) {
           r.json().then((data) => console.log(data))
         } else {
@@ -38,15 +39,15 @@ function Comments({comments, id, currentUser}) {
         comments.length > 0 ? (
           comments.map((comment) => (
             <Comment key={comment.id} comment={comment} />
-          ))
+          )).reverse()
         ) : (
           <>
-            <p>No Comments Found</p>
+            <p>No Comments Yet</p>
           </>
         )
       ) : (
         <>
-          <p>No Comments Found</p>
+          <p>Loading...</p>
         </>
       )}
     </div>

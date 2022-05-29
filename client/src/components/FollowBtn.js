@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 function FollowBtn({currentUser, user, onError, onFollow, isFollowing}) {
 
   function handleFollow(e) {

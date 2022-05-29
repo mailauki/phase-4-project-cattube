@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import Comments from "../components/Comments";
 import User from "../components/User";
 import LikeBtn from "../components/LikeBtn";
@@ -10,7 +9,6 @@ function VideoProfile({currentUser, pathname, onLogout}) {
   const [isLoading, setIsLoading] = useState(true)
   const [video, setVideo] = useState({})
   const [errors, setErrors] = useState([])
-  const [error, setError] = useState(null)
 
   let id = pathname.split("/")[2]
 
@@ -25,6 +23,18 @@ function VideoProfile({currentUser, pathname, onLogout}) {
         }
       })
   }, [])
+
+  function handleComment(comment) {
+    fetch(`/videos/${id}`)
+      .then((r) => {
+        if (r.ok) {
+          r.json().then((video) => {
+            setIsLoading(false)
+            setVideo(video)
+          })
+        }
+      })
+  }
 
   const ifUser = video.user && currentUser ? currentUser.id === video.user.id : null
 
@@ -44,7 +54,7 @@ function VideoProfile({currentUser, pathname, onLogout}) {
                 {video.user ? <User user={video.user} video={video} currentUser={currentUser} onLogout={onLogout} /> : <></>}
               </div>
             </div>
-            <Comments comments={video.comments} id={id} currentUser={currentUser} />
+            <Comments comments={video.comments} id={id} currentUser={currentUser} onComment={handleComment} />
           </>
         ) : (
           <>
