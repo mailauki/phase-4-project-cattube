@@ -3,14 +3,15 @@ function LikeBtn({currentUser, video, onError}) {
   const ifFound = currentUser ? video.likes ? video.likes.find(like => like.user_id === currentUser.id) : video.likes : null
 
   function handleLike(e) {
-    console.log(e.target.className)
+    const liked = currentUser ? {user_id: currentUser.id, video_id: video.id} : null
+    
     e.target.className === "not-liked" ? (
       fetch("/like", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(currentUser ? {user_id: currentUser.id, video_id: video.id} : {})
+        body: JSON.stringify(liked)
       })
         .then((r) => {
           if (r.ok) {

@@ -7,6 +7,7 @@ import User from "../components/User";
 function UserProfile({currentUser, pathname, onLogout}) {
   // let { username }= useParams()
   const [user, setUser] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
 
   // console.log({id})
   // console.log(pathname)
@@ -19,14 +20,20 @@ function UserProfile({currentUser, pathname, onLogout}) {
         fetch("/me")
           .then((r) => {
             if (r.ok) {
-              r.json().then((user) => setUser(user))
+              r.json().then((user) => {
+                setIsLoading(false)
+                setUser(user)
+              })
             }
           })
       ) : (
         fetch(`/${username}`)
           .then((r) => {
             if (r.ok) {
-              r.json().then((user) => setUser(user))
+              r.json().then((user) => {
+                setIsLoading(false)
+                setUser(user)
+              })
             }
           })
       )
@@ -34,9 +41,9 @@ function UserProfile({currentUser, pathname, onLogout}) {
 
   return(
     <>
-      {user ? (
+      {!isLoading ? (
         <div className="Profile">
-          <User user={user} currentUser={currentUser} pathname={pathname} onLogout={onLogout} />
+          <User user={user} currentUser={currentUser} onLogout={onLogout} />
           <div className="user-content">
             <Lists followees={user.followees} likes={user.likes} />
             <div className="user-videos">
@@ -49,7 +56,9 @@ function UserProfile({currentUser, pathname, onLogout}) {
           </div>
         </div>
       ) : (
-        <div>Loading Content</div>
+        <>
+          <h2>Loading...</h2>
+        </>
       )}
     </>
   )

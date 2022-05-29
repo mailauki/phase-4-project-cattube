@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Videos from "../components/Videos";
 
-function Home({pathname, currentUser, onEdit, updatedVideo}) {
+function Home({pathname, currentUser}) {
   const [videos, setVideos] = useState([])
 
   useEffect(() => {
@@ -11,7 +11,15 @@ function Home({pathname, currentUser, onEdit, updatedVideo}) {
   }, [])
 
   return(
-    <Videos videos={videos} pathname={pathname} currentUser={currentUser} onEdit={onEdit} updatedVideo={updatedVideo} />
+    <>
+      {videos ? (
+        <Videos videos={videos} pathname={pathname} currentUser={currentUser} />
+      ) : (
+        <>
+          <h2>Loading...</h2>
+        </>
+      )}
+    </>
   )
 }
 

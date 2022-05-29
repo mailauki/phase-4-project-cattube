@@ -7,31 +7,30 @@ import Errors from "../components/Errors";
 import EditDelete from "../components/EditDelete";
 
 function VideoProfile({currentUser, pathname, onLogout}) {
-  // let { id } = useParams()
+  const [isLoading, setIsLoading] = useState(true)
   const [video, setVideo] = useState({})
   const [errors, setErrors] = useState([])
   const [error, setError] = useState(null)
 
   let id = pathname.split("/")[2]
-  // console.log(useParams())
 
   useEffect(() => {
     fetch(`/videos/${id}`)
       .then((r) => {
         if (r.ok) {
-          r.json().then((video) => setVideo(video))
+          r.json().then((video) => {
+            setIsLoading(false)
+            setVideo(video)
+          })
         }
       })
   }, [])
 
   const ifUser = video.user && currentUser ? currentUser.id === video.user.id : null
 
-  // console.log({id})
-  // console.log(video)
-
   return (
     <div className="video-profile">
-        {video ? (
+        {!isLoading ? (
           <>
             <div className="video-content">
               <iframe src={video.url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
@@ -42,14 +41,14 @@ function VideoProfile({currentUser, pathname, onLogout}) {
                 </div>
                 <Errors errors={errors} />
                 <p>{video.description}</p>
-                <User user={video.user} currentUser={currentUser} onLogout={onLogout} />
+                {video.user ? <User user={video.user} video={video} currentUser={currentUser} onLogout={onLogout} /> : <></>}
               </div>
             </div>
             <Comments comments={video.comments} id={id} currentUser={currentUser} />
           </>
         ) : (
           <>
-            <h2>No Video Found</h2>
+            <h2>Loading...</h2>
           </>
         )}
     </div>
