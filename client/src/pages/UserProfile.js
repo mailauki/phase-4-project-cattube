@@ -39,7 +39,6 @@ function UserProfile({currentUser, pathname, onLogout}) {
         <div className="Profile">
           <User user={user} currentUser={currentUser} onLogout={onLogout} />
           <div className="user-content">
-            <Lists followees={user.followees} likes={user.likes} />
             <div className="user-videos">
               <div className="add-video">
                 <h4>Videos</h4>
@@ -47,6 +46,7 @@ function UserProfile({currentUser, pathname, onLogout}) {
               </div>
               <Videos videos={user.videos} pathname={pathname} currentUser={currentUser} />
             </div>
+            <Lists followees={user.followees} likes={user.likes} />
           </div>
         </div>
       ) : (

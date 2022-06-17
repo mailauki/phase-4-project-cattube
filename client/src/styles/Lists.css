@@ -42,3 +42,10 @@
   width: 100%;
   text-align: left;
 }
+
+@media (max-width: 700px) {
+  .Lists {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

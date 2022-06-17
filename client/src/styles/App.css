@@ -103,34 +103,18 @@
   height: 20%;
 }
 
-.title-edit-delete a {
+.title-edit-delete h3, .title-edit-delete a {
   font-size: 100%;
-  width: 68%;
-  height: fit-content;
+  width: 94%;
   padding: 0;
   margin: 0;
-}
-
-.title-edit-delete h3 {
-  width: 100%;
-  height: fit-content;
-  padding: 0;
-  margin: 0;
-}
-
-.title-edit-delete div {
-  font-size: 100%;
-  max-width: 30%;
-  padding: 0;
-  margin: 0;
-  border: none;
-  color: white;
 }
 
 .EditDelete {
   display: flex;
   justify-content: space-evenly;
   max-width: 100%;
+  margin: auto 2px;
 }
 
 .EditDelete button {

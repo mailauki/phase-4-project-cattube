@@ -72,3 +72,30 @@
 .video-info {
   padding: 10px;
 }
+
+@media (max-width: 700px) {
+  .video-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: 10px 40px;
+  }
+  .video-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 40px;
+  }
+  .video-content {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .video-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 40px;
+  }
+}

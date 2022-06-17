@@ -58,6 +58,8 @@ function User({user, currentUser, pathname, onLogout}) {
 
   const ifUser = user && currentUser ? currentUser.id === user.id : null
 
+  console.log(updatedUser)
+
   return(
     <>
       <div className="creator">
