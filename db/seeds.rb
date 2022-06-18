@@ -21,7 +21,7 @@ video1 = Video.create!(title: "Jurassic Park but with a Cat", description: Faker
 
 video2 = Video.create!(title: "World's smallest cat", description: Faker::Lorem.paragraph(sentence_count: 6), url: "https://www.youtube.com/embed/W86cTIoMv2U", user_id: user1.id)
 
-video3 = Video.create!(title: "Little cat on a fence in the gaden", description: Faker::Lorem.paragraph(sentence_count: 6), url: "https://assets.mixkit.co/videos/preview/mixkit-little-cat-on-a-fence-in-the-gaden-33152-large.mp4", user_id: user2.id)
+video3 = Video.create!(title: "Little cat on a fence in the garden", description: Faker::Lorem.paragraph(sentence_count: 6), url: "https://assets.mixkit.co/videos/preview/mixkit-little-cat-on-a-fence-in-the-gaden-33152-large.mp4", user_id: user2.id)
 
 video4 = Video.create!(title: "Cute red kitten sleeping in the couch", description: Faker::Lorem.paragraph(sentence_count: 6), url: "https://assets.mixkit.co/videos/preview/mixkit-cute-red-kitten-sleeping-in-the-couch-32319-large.mp4", user_id: user2.id)
 
