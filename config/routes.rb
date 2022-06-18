@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :likes
   resources :comments, only: [:create]
-  resources :videos
+  resources :videos, only: [:index, :show]
   resources :users
  
   post "/signup", to: "users#create"

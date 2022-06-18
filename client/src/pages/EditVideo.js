@@ -1,17 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import Errors from "../components/Errors";
 
-function EditVideo({video}) {
-  const [title, setTitle] = useState(video.title)
-  const [description, setDescription] = useState(video.description)
-  const [url, setUrl] = useState(video.url)
+function EditVideo({pathname}) {
+  const [title, setTitle] = useState()
+  const [description, setDescription] = useState()
+  const [url, setUrl] = useState()
   const [errors, setErrors] = useState([])
   const history = useHistory()
+  let id = pathname.split("/")[2]
+
+  useEffect(() => {
+    fetch(`/videos/${id}`)
+      .then((r) => r.json())
+      .then((data) => {
+        setTitle(data.title)
+        setDescription(data.description)
+        setUrl(data.url)
+      })
+  }, [])
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch(`/${video.id}/edit`, {
+    fetch(`/${id}/edit`, {
       method: "PATCH",
       headers:{
         "Content-Type": "application/json"

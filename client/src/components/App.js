@@ -43,7 +43,7 @@ function App() {
               <AddVideo />
             </Route>
             <Route path="/videos/:id/edit">
-              <EditVideo />
+              <EditVideo pathname={pathname} />
             </Route>
             <Route path="/videos/:id">
               <VideoProfile currentUser={currentUser} pathname={pathname} onLogout={setCurrentUser} />
