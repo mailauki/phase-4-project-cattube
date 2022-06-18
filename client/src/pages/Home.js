@@ -21,7 +21,7 @@ function Home({pathname, currentUser}) {
         <Videos videos={videos} pathname={pathname} currentUser={currentUser} />
       ) : (
         <>
-          <h2>Loading...</h2>
+          <h2 style={{textAlign: "center"}}>Loading...</h2>
         </>
       )}
     </>

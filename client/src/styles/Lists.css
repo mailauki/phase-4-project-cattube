@@ -18,6 +18,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 60px;
   padding: 0;
   margin: 0;
 }
@@ -41,6 +42,11 @@
 .Following .none, .Likes .none {
   width: 100%;
   text-align: left;
+}
+
+.Following h4, .Likes h4 {
+  border-bottom: 1px solid;
+  margin: 10px auto;
 }
 
 @media (max-width: 700px) {

@@ -10,7 +10,6 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   has_many :videos
-  # has_many :comments
   has_many :followers
   has_many :followees
   has_many :likes

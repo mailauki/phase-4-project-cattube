@@ -15,15 +15,13 @@ function LikeBtn({currentUser, video, onError}) {
       })
         .then((r) => {
           if (r.ok) {
-            r.json().then((data) => console.log(data))
+            r.json().then((data) => {
+              e.target.classList.remove("not-liked")
+              e.target.classList.add("liked")
+            })
           } else {
             r.json().then((err) => onError(err.errors))
           }
-        })
-        .then((data) => {
-          console.log(data)
-          e.target.classList.remove("not-liked")
-          e.target.classList.add("liked")
         })
     ) : (
       fetch(`/${video.id}/unlike`, {
@@ -33,7 +31,6 @@ function LikeBtn({currentUser, video, onError}) {
         }
       })
         .then((data) => {
-          console.log(data)
           e.target.classList.remove("liked")
           e.target.classList.add("not-liked")
         })

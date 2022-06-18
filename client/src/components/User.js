@@ -8,7 +8,6 @@ function User({user, currentUser, pathname, onLogout}) {
   const [updatedUser, setUpdatedUser] = useState(user)
   const [errors, setErrors] = useState([])
   const [isFollowing, setIsFollowing] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
   const history = useHistory()
 
   useEffect(() => {
@@ -17,7 +16,6 @@ function User({user, currentUser, pathname, onLogout}) {
           .then((r) => {
             if (r.ok) {
               r.json().then((currentUser) => {
-                setIsLoading(false)
                 if (currentUser.followees.find(followee => followee.id === user.id)) {
                   setIsFollowing(true)
                 }
@@ -58,12 +56,10 @@ function User({user, currentUser, pathname, onLogout}) {
 
   const ifUser = user && currentUser ? currentUser.id === user.id : null
 
-  console.log(updatedUser)
-
   return(
     <>
       <div className="creator">
-        {!isLoading ? (
+        {updatedUser ? (
           <>
             <Link to={ifUser ? "/me" : `/${updatedUser.username}`}>
               <p style={{fontWeight: 600}}>{updatedUser.username}</p>

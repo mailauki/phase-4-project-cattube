@@ -58,7 +58,7 @@ function VideoProfile({currentUser, pathname, onLogout}) {
           </>
         ) : (
           <>
-            <h2>Loading...</h2>
+            <h2 style={{textAlign: "center"}}>Loading...</h2>
           </>
         )}
     </div>
