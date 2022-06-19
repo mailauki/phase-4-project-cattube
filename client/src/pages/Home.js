@@ -10,7 +10,7 @@ function Home({pathname, currentUser}) {
       .then((r) => {
         if (r.ok) {
           setIsLoading(false)
-          r.json().then((data) => setVideos(data))
+          r.json().then((data) => setVideos(data.sort(() => 0.5 - Math.random())))
         }
       })
   }, [])
@@ -18,7 +18,7 @@ function Home({pathname, currentUser}) {
   return(
     <>
       {!isLoading ? (
-        <Videos videos={videos} pathname={pathname} currentUser={currentUser} />
+        <Videos videos={videos.slice(0, 6)} pathname={pathname} currentUser={currentUser} />
       ) : (
         <>
           <h2 style={{textAlign: "center"}}>Loading...</h2>
