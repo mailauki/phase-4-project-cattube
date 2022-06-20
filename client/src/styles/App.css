@@ -5,6 +5,10 @@
   color: white;
 }
 
+.user a:hover {
+  color: #aaa;
+}
+
 .creator {
   display: flex;
   justify-content: space-between;

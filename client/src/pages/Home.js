@@ -18,7 +18,7 @@ function Home({pathname, currentUser}) {
   return(
     <>
       {!isLoading ? (
-        <Videos videos={videos.slice(0, 6)} pathname={pathname} currentUser={currentUser} />
+        <Videos videos={videos.slice(0, 9)} pathname={pathname} currentUser={currentUser} />
       ) : (
         <>
           <h2 style={{textAlign: "center"}}>Loading...</h2>
