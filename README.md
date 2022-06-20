@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## CatTube
+This is a website for posting and commenting on cat-related videos.
 
-Things you may want to cover:
+## Functionality
+* The user can either Signup or Login.
 
-* Ruby version
+* The user can post, edit, and delete their own videos.
 
-* System dependencies
+* The user can like and comment on other users' videos.
 
-* Configuration
+* The user can follow and unfollow other users.
 
-* Database creation
+## Usage
+Local server run with `npm start --prefix client` for front-end, and `rails s` for back-end.
 
-* Database initialization
+## Deployment
+Deployed on https://cattube-project.herokuapp.com
 
-* How to run the test suite
+## Roadmap
+* Add links to Following and Liked Videos on User Profiles.
 
-* Services (job queues, cache servers, search engines, etc.)
+* Add a Comments tally for users on User Profile.
 
-* Deployment instructions
-
-* ...
+* Add a search bar for video title or user lookup.
