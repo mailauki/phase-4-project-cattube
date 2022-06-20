@@ -37,10 +37,12 @@ function AddVideo() {
         </div>
         <div className="form-input">
           <label>Description</label>
+          <p className="label">(optional)</p>
           <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
         </div>
         <div className="form-input">
           <label>Video URL</label>
+          <p className="label">Recomended to use embed url.</p>
           <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} />
         </div>
         <button className="form-input button" type="submit">Add</button>
