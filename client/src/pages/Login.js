@@ -33,11 +33,11 @@ function Login({onLogin}) {
       <form className="Form" onSubmit={handleSubmit}>
         <div className="form-input">
           <label>Username</label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
         </div>
         <div className="form-input">
           <label>Password</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <button className="form-input button" type="submit">Login</button>
         <Errors errors={errors} />

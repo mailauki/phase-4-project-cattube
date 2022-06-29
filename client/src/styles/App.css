@@ -9,6 +9,11 @@
   color: #aaa;
 }
 
+.Content {
+  margin: 10px 40px;
+  text-align: center;
+}
+
 .label {
   font-size: 14px;
   padding: 0;

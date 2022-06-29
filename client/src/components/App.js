@@ -32,6 +32,8 @@ function App() {
   return (
       <div className="App">
         <Header currentUser={currentUser} pathname={pathname} />
+
+        <div className="Content">
           <Switch>
             <Route path="/signup">
               <Signup onLogin={setCurrentUser} />
@@ -58,6 +60,7 @@ function App() {
               <Home pathname={pathname} currentUser={currentUser} />
             </Route>
           </Switch>
+        </div>
       </div>
   );
 }

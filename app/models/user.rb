@@ -3,10 +3,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  # has_many :liked_videos, through: :likes, foreign_key: :video_id
-  # has_many :liked_videos, through: :likes, source: :videos
-  # has_many :liked_videos, through: :likes, class_name: "Video"
-  # has_many :liked_videos, foreign_key: :video_id, class_name: "Video", through: :likes
   has_many :liked_videos, through: :likes, source: :video
 
   has_many :followed_users, foreign_key: :follower_id, class_name: "Friendship"

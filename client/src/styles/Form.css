@@ -34,7 +34,6 @@
   align-items: center;
   justify-content: center;
   height: 40px;
-  /* background-color: #000aff9d; */
   font-size: 16px;
 }
 
@@ -48,4 +47,34 @@
   padding: 10px;
   text-align: center;
   margin: 10px auto;
+}
+
+.Search {
+  margin: 10px auto;
+  width: 80%;
+}
+
+.Search input {
+  height: 30px;
+  padding: 0 8px;
+  background-color: #444;
+  border-radius: 4px;
+  border: none;
+  color: #eee;
+  width: 62%;
+}
+
+.Search button {
+  margin: 10px;
+  height: 30px;
+  font-size: 12px;
+}
+
+@media (max-width: 500px) {
+  .Search {
+    width: 100%;
+  }
+  .Search input {
+    width: 40%;
+  }
 }
