@@ -32,7 +32,7 @@ function Home({pathname, currentUser}) {
     setFilteredVideos(filteredVideos)
   }
 
-  let renderedVideos = filteredVideos.length > 0 ? filteredVideos : nineVideos
+  let renderedVideos = filteredVideos.length > 0 && filteredVideos.length !== videos.length ? filteredVideos : nineVideos
 
   return(
     <>
