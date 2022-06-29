@@ -1,11 +1,11 @@
 import Likes from "../components/Likes";
 import Following from "../components/Following";
 
-function Lists({followees, likes}) {
+function Lists({followees, likedVideos}) {
   return(
     <div className="Lists">
       <Following followees={followees} />
-      <Likes likes={likes} />
+      <Likes likedVideos={likedVideos} />
     </div>
   )
 }

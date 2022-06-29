@@ -46,7 +46,7 @@ function UserProfile({currentUser, pathname, onLogout}) {
               </div>
               <Videos videos={user.videos} pathname={pathname} currentUser={currentUser} />
             </div>
-            <Lists followees={user.followees} likes={user.likes} />
+            <Lists followees={user.followees} likedVideos={user.liked_videos} />
           </div>
         </div>
       ) : (
