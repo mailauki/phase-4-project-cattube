@@ -22,7 +22,7 @@ function EditVideo({pathname}) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch(`/${id}/edit`, {
+    fetch(`/videos/${id}`, {
       method: "PATCH",
       headers:{
         "Content-Type": "application/json"

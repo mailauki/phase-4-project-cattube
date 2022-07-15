@@ -7,8 +7,8 @@ function Following({followees}) {
       {followees ? (
         followees.length > 0 ? (
           followees.map(followee => (
-            <Link to={`/${followee.username}`}>
-              <div key={followee.id} className="items">
+            <Link to={`/${followee.username}`} key={followee.id}>
+              <div className="items">
                 <h5>{followee.username}</h5>
                 <p>{followee.videos_total} videos</p>
               </div>

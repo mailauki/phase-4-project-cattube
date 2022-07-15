@@ -1,8 +1,13 @@
 class VideosController < ApplicationController
-  skip_before_action :authorize, only: [:index, :show]
+  skip_before_action :authorize, only: [:index, :show, :alpha]
 
   def index
     videos = Video.all
+    render json: videos
+  end
+
+  def alpha
+    videos = Video.order(:title)
     render json: videos
   end
 

@@ -7,7 +7,7 @@ import User from "../components/User";
 function UserProfile({currentUser, pathname, onLogout}) {
   const [user, setUser] = useState({})
   const [isLoading, setIsLoading] = useState(true)
-  let username = pathname.split("/")[1]
+  let userId = pathname.split("/")[2]
 
   useEffect(() => {
       pathname === "/me" ? (
@@ -21,7 +21,7 @@ function UserProfile({currentUser, pathname, onLogout}) {
             }
           })
       ) : (
-        fetch(`/${username}`)
+        fetch(`/users/${userId}`)
           .then((r) => {
             if (r.ok) {
               r.json().then((user) => {

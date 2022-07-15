@@ -11,7 +11,7 @@ function AddVideo() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch("/new", {
+    fetch("/videos", {
       method: "POST",
       headers:{
         "Content-Type": "application/json"

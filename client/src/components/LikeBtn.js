@@ -6,7 +6,7 @@ function LikeBtn({currentUser, video, onError}) {
     const liked = currentUser ? {user_id: currentUser.id, video_id: video.id} : null
     
     e.target.className === "not-liked" ? (
-      fetch("/like", {
+      fetch("/likes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,7 +24,7 @@ function LikeBtn({currentUser, video, onError}) {
           }
         })
     ) : (
-      fetch(`/${video.id}/unlike`, {
+      fetch(`/likes/${video.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

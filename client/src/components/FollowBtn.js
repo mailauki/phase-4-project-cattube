@@ -4,7 +4,7 @@ function FollowBtn({currentUser, user, onError, onFollow, isFollowing}) {
     const following = currentUser ? {followee_id: user.id, follower_id: currentUser.id} : null
 
     isFollowing ? (
-      fetch(`/${user.id}/unfollow`, {
+      fetch(`/friendships/${user.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -14,7 +14,7 @@ function FollowBtn({currentUser, user, onError, onFollow, isFollowing}) {
           onFollow(false)
         })
       ) : (
-        fetch("/follow", {
+        fetch("/friendships", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

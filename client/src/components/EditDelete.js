@@ -8,7 +8,7 @@ function EditDelete({video, currentUser}) {
   }
 
   function handleDelete(e) {
-    fetch(`/${video.id}/remove`, {
+    fetch(`videos/${video.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"

@@ -53,7 +53,7 @@ function App() {
             <Route path="/me">
               <UserProfile currentUser={currentUser} pathname={pathname} onLogout={setCurrentUser} />
             </Route>
-            <Route path="/:username">
+            <Route path="/users/:id">
               <UserProfile currentUser={currentUser} pathname={pathname} />
             </Route>
             <Route path="/">

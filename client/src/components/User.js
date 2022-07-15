@@ -26,7 +26,8 @@ function User({user, currentUser, pathname, onLogout}) {
             }
           })
     }
-  }, [pathname])
+  }, [])
+  // refresh resets isFollowing state without rerunning useEffect
   
   function handleLogout() {
     console.log("logout")
@@ -43,7 +44,7 @@ function User({user, currentUser, pathname, onLogout}) {
   }
 
   function handleFollow(following) {
-    fetch(`/${user.username}`)
+    fetch(`/users/${user.id}`)
       .then((r) => {
         if (r.ok) {
           r.json().then((user) => {
@@ -61,7 +62,7 @@ function User({user, currentUser, pathname, onLogout}) {
       <div className="creator">
         {updatedUser ? (
           <>
-            <Link to={ifUser ? "/me" : `/${updatedUser.username}`}>
+            <Link to={ifUser ? "/me" : `/users/${updatedUser.id}`}>
               <p style={{fontWeight: 600}}>{updatedUser.username}</p>
             </Link>
             <p>{updatedUser.followers_total} followers</p>

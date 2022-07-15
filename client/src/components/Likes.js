@@ -7,8 +7,8 @@ function Likes({likedVideos}) {
       {likedVideos ? (
         likedVideos.length > 0 ? (
           likedVideos.map(likedVideo => (
-            <Link to={`/videos/${likedVideo.id}`}>
-              <div key={likedVideo.id} className="items">
+            <Link to={`/videos/${likedVideo.id}`} key={likedVideo.id}>
+              <div className="items">
                 <h5>{likedVideo.title}</h5>
                 <p>{likedVideo.likes_total} likes</p>
               </div>
