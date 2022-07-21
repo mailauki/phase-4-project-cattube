@@ -22,3 +22,7 @@ Deployed on https://cattube-project.herokuapp.com
 
 ## Roadmap
 * Add a Comments tally for users on User Profile.
+
+* Add delete Comment button. 
+
+* Add sort option for Videos on Home page.

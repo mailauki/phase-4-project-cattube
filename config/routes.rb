@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :likes
   resources :comments, only: [:create]
-  resources :videos, only: [:index, :show, :alpha, :create, :update, :destroy]
+  resources :videos, only: [:index, :show, :create, :update, :destroy]
   resources :users
   resources :friendships, only: [:create, :destroy]
  
@@ -10,8 +10,6 @@ Rails.application.routes.draw do
 
   post "/login", to: "session#create"
   delete "/logout", to: "session#destroy"
-
-  get "/alpha", to: "videos#alpha"
 
   get '*path',
       to: 'fallback#index',

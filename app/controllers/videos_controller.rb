@@ -6,11 +6,6 @@ class VideosController < ApplicationController
     render json: videos
   end
 
-  def alpha
-    videos = Video.order(:title)
-    render json: videos
-  end
-
   def show
     video = find_video
     render json: video, serializer: VideoCommentSerializer
