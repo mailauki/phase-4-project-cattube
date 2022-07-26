@@ -21,6 +21,8 @@ Local server run with `npm start --prefix client` for front-end, and `rails s` f
 Deployed on https://cattube-project.herokuapp.com
 
 ## Roadmap
+* Add back-end search bar on Home Page.
+
 * Add a Comments tally for users on User Profile.
 
 * Add delete Comment button. 
