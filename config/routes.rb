@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :likes
+  resources :likes, only: [:create, :destroy]
   resources :comments, only: [:create]
-  resources :videos, only: [:index, :show, :create, :update, :destroy]
-  resources :users
+  resources :videos
+  resources :users, only: [:index, :show]
   resources :friendships, only: [:create, :destroy]
  
   post "/signup", to: "users#create"
