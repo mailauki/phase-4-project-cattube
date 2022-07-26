@@ -13,4 +13,8 @@ class Video < ApplicationRecord
       errors.add :title, "must contain 'Cat' or 'Kitten'"
     end
   end
+
+  def likes_total
+    self.likes.length
+  end
 end
