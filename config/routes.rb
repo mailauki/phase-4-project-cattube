@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   post "/login", to: "session#create"
   delete "/logout", to: "session#destroy"
 
+  get "/search/:keyword", to: "videos#search"
+
+  get "/random_nine_videos", to: "videos#random_nine"
+
   get '*path',
       to: 'fallback#index',
       constraints: ->(req) { !req.xhr? && req.format.html? }

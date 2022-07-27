@@ -6,6 +6,19 @@ class VideosController < ApplicationController
     render json: videos
   end
 
+  def search
+    keyword = params[:keyword]
+    byTitle = Video.where("title like ?", "%#{keyword}%")
+    byDescription = Video.where("description like ?", "%#{keyword}%")
+    videos = byTitle.to_a.concat(byDescription.to_a)
+    render json: videos
+  end
+
+  def random_nine
+    videos = Video.all.shuffle.take(9)
+    render json: videos
+  end
+
   def show
     video = find_video
     render json: video, serializer: VideoCommentSerializer
